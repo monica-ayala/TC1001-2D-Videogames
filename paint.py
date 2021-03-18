@@ -7,8 +7,9 @@ Exercises
 5. Add width parameter.
 """
 
-from turtle import up, goto, down, begin_fill, forward, left, setup, circle, right
-from turtle import end_fill, onscreenclick, listen, onkey, undo, color, done, setposition
+from turtle import up, goto, down, begin_fill, forward, left, setup, circle
+from turtle import end_fill, onscreenclick, listen, onkey, undo, color, done
+from turtle import setposition, right
 from freegames import vector
 
 
@@ -22,14 +23,14 @@ def line(start, end):
 
 def square(start, end):
     "Draw square from start to end."
-    up() 
+    up()
     goto(start.x, start.y)
-    down() 
-    
+    down()
+
     begin_fill()
-    
+
     for count in range(4):
-        forward(end.x - start.x)  
+        forward(end.x - start.x)
         left(90)
 
     end_fill()
@@ -42,38 +43,50 @@ def circle_draw(start, end):
     goto(start.x, start.y)
     down()
     begin_fill()
-    
+
     circle(end.x - start.x)
-    
+
     end_fill()
     up()
-    
+
 
 def rectangle(start, end):
     "Draw rectangle from start to end."
-    up() #Levanta el turtle del lienzo (no pinta)
-    goto(start.x, start.y)  #Mueve el turtle hacia la posición que clicquea el usuario
-    down() #Pone el turtle sobre el lienzo (puede pintar)
+    # Levanta el turtle del lienzo (no pinta)
+    up()
+    # Mueve el turtle hacia la posición que clicquea el usuario
+    goto(start.x, start.y)
+    # Pone el turtle sobre el lienzo (puede pintar)
+    down()
     color('blue')
-    begin_fill() #Se indica el color de relleno de la figura al igual que el inicio y final de la acción 
+    # Se indica el color de relleno de la figura
+    # al igual que el inicio y final de la acción
+    begin_fill()
 
-    # Se realiza dos trazos principales del rectangulo: base y lateral. Guarda una relacion 1:2
+    # Se realiza dos trazos principales del rectangulo: base y lateral.
+    # Guarda una relacion 1:2
     for i in range(2):
         forward(end.x-start.x)
         right(90)
         forward((end.x-start.x)*2)
         right(90)
     up()
-    end_fill() #Termina de rellenar 
+    # Termina de rellenar
+    end_fill()
+
 
 def triangle(start, end):
     "Draw triangle from start to end."
+    # Levanta el turtle del lienzo (no pinta)
     up()
+    # Mueve el turtle hacia la posición que clicquea el usuario
     goto(start.x, start.y)
+    # Pone el turtle sobre el lienzo (puede pintar)
     down()
 
     begin_fill()
 
+    # Se realiza el trazo principal del triangulo. Lados iguales.
     for i in range(3):
         forward(end.x - start.x)
         left(120)
