@@ -42,11 +42,11 @@ def move():
         return
 
     snake.append(head)
-    # La comida se mueve en un rango de -+1 en xy de forma aleatoria
+
     if head == food:
         print('Snake:', len(snake))
-        food.x = randrange(-1, 1)*10
-        food.y = randrange(-1, 1)*10
+        food.x = randrange(-15, 15) * 10
+        food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
 
@@ -54,10 +54,15 @@ def move():
 
     for body in snake:
         square(body.x, body.y, 9, color[0])
+    
 
     square(food.x, food.y, 9, color[1])
+    if head != food:
+        food.x = randrange(-1, 1)*10
+        food.y = randrange(-1, 1)*10
+        
     update()
-    ontimer(move, 100)
+    ontimer(move, 250)
     
 
 def color():
