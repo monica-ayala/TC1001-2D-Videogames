@@ -11,9 +11,9 @@ Exercises:
 """
 
 from random import shuffle
-from turtle import done, onscreenclick, tracer, hideturtle, addshape
+from turtle import done, onscreenclick, tracer, hideturtle, addshape, bye 
 from turtle import write, color, goto, up, stamp, shape, clear, left, forward
-from turtle import begin_fill, down, end_fill, setup, ontimer, update
+from turtle import begin_fill, down, end_fill, setup, ontimer, update, title
 
 from freegames import path
 
@@ -23,6 +23,7 @@ tiles2=["*","#","x","y",":)",":(",":O","D:",":D",";)","B)",":P",":v",">:v","v:",
 state = {'mark': None}
 hide = [True] * 64
 tap_count = 0
+cuentacuantos = 0
 
 
 def square(x, y):
@@ -49,22 +50,29 @@ def xy(count):
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
 
-def tap(x, y):
+def tap(x, y): #Cliquea a lo bestia 
     "Update mark and hidden tiles based on tap."
-    global tap_count
+    global tap_count #~cuenta taps
     tap_count=tap_count + 1
     print("number of taps: ",tap_count)
     
     
-    spot = index(x, y)
-    mark = state['mark']
-
-    if mark is None or mark == spot or tiles[mark] != tiles[spot]:
+    spot = index(x, y) #direccion del tile 
+    mark = state['mark'] #No se que es
+    # mark == spot ->spot \ tile(mark) == tile(spot) -> FALSE
+    if mark is None or mark == spot or tiles[mark] != tiles[spot]: 
         state['mark'] = spot
     else:
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+        global cuentacuantos 
+        cuentacuantos = cuentacuantos + 1
+        print("cuentacuantos = ", cuentacuantos)
+        if cuentacuantos == 32:
+            bye()
+            print("YOU WIN,congratulations!! Go take a rest you deserve it :)")
+
 
 
 def draw():
@@ -82,7 +90,7 @@ def draw():
 
     mark = state['mark']
 
-   
+
 
 
 
@@ -95,8 +103,8 @@ def draw():
         goto(x + 13, y + 10)
         write(tiles2[tiles[mark]], font=('Arial', 15, 'normal'))
        
-       
-       
+
+
 
     update()
     ontimer(draw, 100)
@@ -104,6 +112,7 @@ def draw():
 
 shuffle(tiles)
 setup(420, 420, 370, 0)
+title("MemoryGame")
 addshape(car)
 hideturtle()
 tracer(False)
