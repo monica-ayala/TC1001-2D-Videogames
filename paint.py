@@ -13,56 +13,86 @@ from turtle import setposition, right
 from freegames import vector
 
 
+# Funcion que dibuja una linea recta
 def line(start, end):
     "Draw line from start to end."
     # Levanta el turtle del lienzo (no pinta)
     up()
+
+    # Mueve el turtle hacia la posición que clicquea el usuario
     goto(start.x, start.y)
+
+    # Pone el turtle sobre el lienzo (puede pintar)
     down()
+
+    # Mueve el turtle hacia la posición que clicquea el usuario
     goto(end.x, end.y)
 
 
+# Funcion que dibuja un cuadrado
 def square(start, end):
     "Draw square from start to end."
     # Levanta el turtle del lienzo (no pinta)
     up()
+
     # Mueve el turtle hacia la posición que clicquea el usuario
     goto(start.x, start.y)
-    # Pone el turtle sobre el lienzo (puede pintar)  
+
+    # Pone el turtle sobre el lienzo (puede pintar)
     down()
 
+    # Se indica el rellenado de la figura
     begin_fill()
 
+    # Se realiza un trazo que se repite 4 veces
+    # para formar el cuadrado
     for count in range(4):
+        # Accion del trazado
         forward(end.x - start.x)
+        # El turtle gira 90 grados a la izquierda
         left(90)
 
+    # Termina el relleno de la figura
     end_fill()
+
+    # Levanta el turtle del lienzo (no pinta)
     up()
 
 
+# Funcion que dibuja un circulo
 def circle_draw(start, end):
     "Draw square from start to end."
     # Levanta el turtle del lienzo (no pinta)
     up()
+
     # Mueve el turtle hacia la posición que clicquea el usuario
     goto(start.x, start.y)
+
     # Pone el turtle sobre el lienzo (puede pintar)
     down()
+
+    # Se inicia el relleno de la figura
     begin_fill()
 
+    # Funcion circle de turtle, dibuja un circulo con radio Delta x
     circle(end.x - start.x)
 
+    # Se termina el relleno de la figura
     end_fill()
+
+    # Levanta el turtle del lienzo(no pinta)
     up()
 
 
+# Funcion que dibuja un rectangulo
 def rectangle(start, end):
     "Draw rectangle from start to end."
     # Levanta el turtle del lienzo (no pinta)
     up()
+
     # Mueve el turtle hacia la posición que clicquea el usuario
     goto(start.x, start.y)
+
     # Pone el turtle sobre el lienzo (puede pintar)
     down()
 
@@ -70,36 +100,54 @@ def rectangle(start, end):
     # al igual que el inicio y final de la acción
     begin_fill()
 
-    # Se realiza dos trazos principales del rectangulo: base y lateral.
+    # Se realiza dos trazos principales del rectangulo: base y lateral
     # Guarda una relacion 1:2
     for i in range(2):
+        # Se hace el trazado con el cambio en x
         forward(end.x-start.x)
+
+        # El turtle gira 90 grados a la derecha
         right(90)
+
         forward((end.x-start.x)*2)
         right(90)
+    # Levanta el turtle del lienzo (no pinta)
     up()
+
     # Termina de rellenar
     end_fill()
 
 
+# Funcion que dibuja un triangulo
 def triangle(start, end):
     "Draw triangle from start to end."
     # Levanta el turtle del lienzo (no pinta)
     up()
+
     # Mueve el turtle hacia la posición que clicquea el usuario
     goto(start.x, start.y)
+
     # Pone el turtle sobre el lienzo (puede pintar)
     down()
 
+    # Se inica el rellenado de la figura
     begin_fill()
 
     # Se realiza el trazo principal del triangulo. Lados iguales.
     for i in range(3):
+        # hace el trazado con el cambio en x
         forward(end.x - start.x)
+
+        # Gira el turtle 120 grados a la izquierda
         left(120)
+    # Termina de rellenar la figura
     end_fill()
 
+    # Levanta el turtle del lienzo (no pinta)
+    up()
 
+
+# Guarda el punto donde se quiere dibujar
 def tap(x, y):
     "Store starting point or draw shape."
     start = state['start']
