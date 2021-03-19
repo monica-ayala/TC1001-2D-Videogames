@@ -19,6 +19,7 @@ from freegames import path
 
 car = path('car.gif')
 tiles = list(range(32)) * 2
+tiles2=["*","#","x","y",":)",":(",":O","D:",":D",";)","B)",":P",":v",">:v","v:","UwU","xD","7w7","TuT",":3","$","%","¿?","c:",":c",":'c",":')","^^","^u^","(o.o)","..",".-."]*2
 state = {'mark': None}
 hide = [True] * 64
 tap_count = 0
@@ -81,18 +82,20 @@ def draw():
 
     mark = state['mark']
 
+   
+
+
+
     if mark is not None and hide[mark]:
+
         x, y = xy(mark)
         up()
+        
         color('black')
-
-        "align center"
-        if tiles[mark]<10:
-            goto(x + 15, y + 2)
-            write(tiles[mark], font=('Arial', 30, 'normal'))
-        else:
-            goto(x + 5, y + 2)
-            write(tiles[mark], font=('Arial', 30, 'normal'))
+        goto(x + 13, y + 10)
+        write(tiles2[tiles[mark]], font=('Arial', 15, 'normal'))
+       
+       
        
 
     update()
