@@ -15,6 +15,7 @@ from freegames import vector
 
 def line(start, end):
     "Draw line from start to end."
+    # Levanta el turtle del lienzo (no pinta)
     up()
     goto(start.x, start.y)
     down()
@@ -23,8 +24,11 @@ def line(start, end):
 
 def square(start, end):
     "Draw square from start to end."
+    # Levanta el turtle del lienzo (no pinta)
     up()
+    # Mueve el turtle hacia la posición que clicquea el usuario
     goto(start.x, start.y)
+    # Pone el turtle sobre el lienzo (puede pintar)  
     down()
 
     begin_fill()
@@ -39,8 +43,11 @@ def square(start, end):
 
 def circle_draw(start, end):
     "Draw square from start to end."
+    # Levanta el turtle del lienzo (no pinta)
     up()
+    # Mueve el turtle hacia la posición que clicquea el usuario
     goto(start.x, start.y)
+    # Pone el turtle sobre el lienzo (puede pintar)
     down()
     begin_fill()
 
@@ -58,7 +65,7 @@ def rectangle(start, end):
     goto(start.x, start.y)
     # Pone el turtle sobre el lienzo (puede pintar)
     down()
-    color('blue')
+
     # Se indica el color de relleno de la figura
     # al igual que el inicio y final de la acción
     begin_fill()
