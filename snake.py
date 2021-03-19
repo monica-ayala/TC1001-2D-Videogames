@@ -11,23 +11,28 @@ from turtle import hideturtle, tracer, listen, onkey, done
 from random import randrange
 from freegames import square, vector
 
+# Se declaran las variables
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
-color_body=""
-color_food=""
+color_body = ""
+color_food = ""
 
+
+# Se indentifica la dirección a la que apunta el snake
 def change(x, y):
     "Change snake direction."
     aim.x = x
     aim.y = y
 
 
+# Se cerciorar que la cabeza esté dentro de la pantalla
 def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
 
 
+# Movimientos de la serpiente y comida
 def move():
     "Move snake forward one segment."
     head = snake[-1].copy()
@@ -46,12 +51,14 @@ def move():
         food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
+
+    # Se crea una nueva coordenada donde la comida
+    # corre +-1 en todas direcciones mientras la cabeza
+    # no toque la coordernada de la comida
     k = int(food.x/10)
-    l = int(food.y/10)
+    c = int(food.y/10)
     food.x = randrange(-1+k, 2+k) * 10
-    food.y = randrange(-1+l, 2+l) * 10
-    
-    
+    food.y = randrange(-1+c, 2+c) * 10
 
     clear()
 
@@ -61,13 +68,16 @@ def move():
     square(food.x, food.y, 9, color[1])
     update()
     ontimer(move, 250)
-    
 
+
+# Se indican los colores con los que aparece la serpiente y la comida
 def color():
-    color_list1 =['blue','green','brown','yellow','purple']
-    color_list2 =['black','cyan','orange','pink','violet']
-    color_body=color_list1[randrange(0,4)]
-    color_food=color_list2[randrange(0,4)]
+    color_list1 = ['blue', 'green', 'brown', 'yellow', 'purple']
+    color_list2 = ['black', 'cyan', 'orange', 'pink', 'violet']
+
+    # El color es random cada vez que inicias el juego
+    color_body = color_list1[randrange(0, 4)]
+    color_food = color_list2[randrange(0, 4)]
     return color_body, color_food
 
 
