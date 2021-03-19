@@ -27,8 +27,7 @@ class Ui_MainWindow(object):
         self.Button_A.setStyleSheet("background-color: rgb(255, 255, 0);\n"
                                     "font: 26pt \"MS Gothic\";")
         self.Button_A.setObjectName("Button_A")
-        self.Button_A.clicked.connect
-        (partial(self.button_click, self.Button_A))
+        self.Button_A.clicked.connect(partial(self.button_click, self.Button_A))
 
         # Botón B
         self.Button_B = QtWidgets.QPushButton(self.centralwidget)
@@ -36,8 +35,7 @@ class Ui_MainWindow(object):
         self.Button_B.setStyleSheet("background-color: rgb(0, 255, 0);\n"
                                     "font: 26pt \"MS Gothic\";")
         self.Button_B.setObjectName("Button_B")
-        self.Button_B.clicked.connect
-        (partial(self.button_click, self.Button_B))
+        self.Button_B.clicked.connect(partial(self.button_click, self.Button_B))
 
         # Botón C
         self.Button_C = QtWidgets.QPushButton(self.centralwidget)
@@ -45,8 +43,7 @@ class Ui_MainWindow(object):
         self.Button_C.setStyleSheet("background-color: rgb(255, 0, 127);\n"
                                     "font: 26pt \"MS Gothic\";")
         self.Button_C.setObjectName("Button_C")
-        self.Button_C.clicked.connect
-        (partial(self.button_click, self.Button_C))
+        self.Button_C.clicked.connect(partial(self.button_click, self.Button_C))
 
         # Botón D
         self.Button_D = QtWidgets.QPushButton(self.centralwidget)
@@ -54,8 +51,7 @@ class Ui_MainWindow(object):
         self.Button_D.setStyleSheet("background-color: rgb(255, 85, 0);\n"
                                     "font: 26pt \"MS Gothic\";")
         self.Button_D.setObjectName("Button_D")
-        self.Button_D.clicked.connect
-        (partial(self.button_click, self.Button_D))
+        self.Button_D.clicked.connect(partial(self.button_click, self.Button_D))
 
         # Botón E
         self.Button_E = QtWidgets.QPushButton(self.centralwidget)
@@ -64,8 +60,7 @@ class Ui_MainWindow(object):
                                     "background-color: rgb(170, 0, 255);\n"
                                     "font: 26pt \"MS Gothic\";")
         self.Button_E.setObjectName("Button_E")
-        self.Button_E.clicked.connect
-        (partial(self.button_click, self.Button_E))
+        self.Button_E.clicked.connect(partial(self.button_click, self.Button_E))
 
         # Botón F
         self.Button_F = QtWidgets.QPushButton(self.centralwidget)
@@ -73,8 +68,7 @@ class Ui_MainWindow(object):
         self.Button_F.setStyleSheet("background-color: rgb(170, 0, 0);\n"
                                     "font: 26pt \"MS Gothic\";")
         self.Button_F.setObjectName("Button_F")
-        self.Button_F.clicked.connect
-        (partial(self.button_click, self.Button_F))
+        self.Button_F.clicked.connect(partial(self.button_click, self.Button_F))
 
         # Botón G
         self.Button_G = QtWidgets.QPushButton(self.centralwidget)
@@ -82,8 +76,7 @@ class Ui_MainWindow(object):
         self.Button_G.setStyleSheet("background-color: rgb(0, 85, 255);\n"
                                     "font: 26pt \"MS Gothic\";")
         self.Button_G.setObjectName("Button_G")
-        self.Button_G.clicked.connect
-        (partial(self.button_click, self.Button_G))
+        self.Button_G.clicked.connect(partial(self.button_click, self.Button_G))
 
         # Botón label (PIANO)
         self.label = QtWidgets.QPushButton(self.centralwidget)
@@ -91,8 +84,7 @@ class Ui_MainWindow(object):
         self.label.setStyleSheet("background-color: rgb(0, 170, 127);\n"
                                  "font: 26pt \"MS Gothic\";")
         self.label.setObjectName("label")
-        self.label.clicked.connect
-        (partial(self.button_recall, self.label))
+        self.label.clicked.connect(partial(self.button_recall, self.label))
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
